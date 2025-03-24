@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { destinations } from './data/destinations'
 const Home = () => {
-  const [loadingType, setLoadingType] = useState('sync'); // 'sync' or 'async'
+  const [loadingType, setLoadingType] = useState('async'); // 'sync' or 'async'
   const [loadedImages, setLoadedImages] = useState([]);
   const [startTime, setStartTime] = useState(0); // 記錄開始時間
   const [totalTime, setTotalTime] = useState(0); // 記錄總耗時
