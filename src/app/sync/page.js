@@ -16,7 +16,13 @@ const SyncPage = () => {
 
       if (loadingType === 'sync') {
         const loadSequentially = async () => {
+         
           for (let i = 0; i < destinations.length; i++) {
+            const  delay = 3000 // 凍結 3 秒
+            const  end = +new Date() + delay
+            while(new Date() < end) {
+        
+            }
             await new Promise((resolve) => {
               const img = new Image();
               img.src = destinations[i].src + `?t=${Date.now()}`; // 強制重新載入
