@@ -61,7 +61,7 @@ const SocialMediaWall = () => {
           });
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.5 }
     );
 
     const currentObserver = observerRef.current;
@@ -138,7 +138,7 @@ const SocialMediaWall = () => {
           No more posts to load
         </div>
       )}
-      <div ref={observerRef} style={{ height: "20px" }} />
+      <div ref={observerRef} style={{ height: "40px" }} />
     </div>
   );
 };
