@@ -45,17 +45,21 @@ const SocialMediaWall = () => {
 
   useEffect(() => {
     if (!hasFetchedInitial.current) {
-      fetchPosts(1);
+      fetchPosts
+      (1);
       hasFetchedInitial.current = true;
     }
   }, [fetchPosts]);
 
   useEffect(() => {
+    
     const observer = new IntersectionObserver(
       (entries) => {
+      
         if (entries[0].isIntersecting && !loading && hasMore) {
           setPage((prev) => {
             const nextPage = prev + 1;
+           
             fetchPosts(nextPage);
             return nextPage;
           });
@@ -66,11 +70,11 @@ const SocialMediaWall = () => {
 
     const currentObserver = observerRef.current;
     if (currentObserver) observer.observe(currentObserver);
-
+   
     return () => {
       if (currentObserver) observer.unobserve(currentObserver);
     };
-  }, []);
+  }, [fetchPosts, hasMore, loading]);
 
   return (
     <div className="max-w-4xl mx-auto py-6">
